@@ -23,7 +23,8 @@ public class Cube : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		State.Update();	// call state's update function
+		if(State != null)
+			State.Update();	// call state's update function
 	}
 	
 	void OnCollisionEnter(Collision col)

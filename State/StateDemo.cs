@@ -5,45 +5,52 @@ using UnityEngine.UI;
 
 public class StateDemo : MonoBehaviour
 {
+    // ------------ constants ----------------
+    public const string GIT_LINK = "https://github.com/SomeTallGy/DGC_Patterns/tree/master/State";
 
     // --------- inspector fields ------------
     public Cube theCube;
     public Text stateInfo;
 
-	// --------- private fields --------------
-	private CubeState normalState;
-	private CubeState happyState;
-	private CubeState sadState;
+    // --------- private fields --------------
+    private CubeState normalState;
+    private CubeState happyState;
+    private CubeState sadState;
 
-	void Start()
-	{
-		// 1. Initialize states
-		normalState = new NormalState(theCube);
-		happyState = new HappyState(theCube);
-		sadState = new SadState(theCube);
+    void Start()
+    {
+        // 1. Initialize states
+        normalState = new NormalState(theCube);
+        happyState = new HappyState(theCube);
+        sadState = new SadState(theCube);
 
-		// 2. Default State
-		theCube.State = normalState;
-		stateInfo.text = "Cube is in "+theCube.State.GetType().Name;
-	}
+        // 2. Default State
+        theCube.State = normalState;
+        stateInfo.text = "Cube is in " + theCube.State.GetType().Name;
+    }
 
     void OnGUI()
     {
         if (GUI.Button(new Rect(10, 10, 150, 100), "Normal"))
         {
             theCube.State = normalState;
-			stateInfo.text = "Cube is in "+theCube.State.GetType().Name;
+            stateInfo.text = "Cube is in " + theCube.State.GetType().Name;
         }
         if (GUI.Button(new Rect(170, 10, 150, 100), "Sad"))
         {
             theCube.State = sadState;
-			stateInfo.text = "Cube is in "+theCube.State.GetType().Name;
+            stateInfo.text = "Cube is in " + theCube.State.GetType().Name;
         }
         if (GUI.Button(new Rect(330, 10, 150, 100), "Happy"))
         {
             theCube.State = happyState;
-			stateInfo.text = "Cube is in "+theCube.State.GetType().Name;
+            stateInfo.text = "Cube is in " + theCube.State.GetType().Name;
         }
+    }
+
+    public void OpenGit()
+    {
+        Application.OpenURL(GIT_LINK);
     }
 
 }

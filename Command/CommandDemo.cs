@@ -4,7 +4,9 @@ using UnityEngine.UI;
 namespace Patterns.Command
 {
     public class CommandDemo : MonoBehaviour
-    {
+    {   
+        // ------------ constants ---------------------
+        public const string GIT_LINK = "https://github.com/SomeTallGy/DGC_Patterns/tree/master/Command";
 
         // ------------ inspector fields --------------
         public CommandableSpheres commandReceiver;
@@ -82,6 +84,11 @@ namespace Patterns.Command
                     bufferPosition.text += ".";
                 }
             }
+        }
+
+        public void OpenGit()
+        {
+            Application.OpenURL(GIT_LINK);
         }
     }
 }
